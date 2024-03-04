@@ -5,16 +5,8 @@ const DateStep = () => {
     const [count , setCount] = useState(1);
   return (
     <div>
-      <div style={{display: "flex", gap:"10px"}}>
-        <button onClick={()=>setStep(step+1)}>+</button>
-        <p>{step}</p>
-        <button onClick={()=>setStep(step-1)}>-</button>
-      </div>
-      <div style={{display: "flex", gap: "10px"}}>
-        <button onClick={()=>setCount(count+step)}>+</button>
-        <p>{count}</p>
-        <button onClick={()=>setCount(count-step)}>-</button>
-      </div>
+      <input type="range" min={0} max={10} value={step} onChange={e=>setStep(Number(e.target.value))}/>
+    <input type="text" value={step} onChange={(e)=>setCount(Number(e.target.value))} />
     </div>
   )
 }
